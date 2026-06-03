@@ -1,12 +1,14 @@
 const express = require('express');
-const app = express();
 const helmet = require('helmet');
+
+const app = express();
 const PORT = process.env.PORT || 3000;
 app.use(helmet());
 
 app.get('/health', (req, res) => {
   res.json({ status: 'ok' });
 });
+
 
 // Only start the server if this file is run directly (not imported in tests)
 if (require.main === module) {
