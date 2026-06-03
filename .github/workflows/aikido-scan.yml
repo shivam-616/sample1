@@ -56,6 +56,11 @@ jobs:
   build-and-push:
     needs: [test, aikido-scan]   # only after both tests and scan pass
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write
+
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
 
     steps:
